@@ -7,13 +7,13 @@ import (
 	"strings"
 	"time"
 
+	nsq "github.com/jedi108/nsq-go"
+	"github.com/jedi108/nsq-go/nsqlookup"
 	"github.com/segmentio/conf"
 	"github.com/segmentio/events"
 	_ "github.com/segmentio/events/ecslogs"
 	"github.com/segmentio/events/httpevents"
 	_ "github.com/segmentio/events/text"
-	nsq "github.com/segmentio/nsq-go"
-	"github.com/segmentio/nsq-go/nsqlookup"
 	"github.com/segmentio/services"
 )
 
@@ -31,7 +31,7 @@ func main() {
 		CacheTimeout: 1 * time.Minute,
 		ZoneAwareAgents: []string{
 			nsq.DefaultUserAgent,
-			"nsq-to-http (github.com/segmentio/nsq-go)",
+			"nsq-to-http (github.com/jedi108/nsq-go)",
 		},
 	}
 

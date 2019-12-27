@@ -16,8 +16,8 @@ import (
 	"syscall"
 	"time"
 
+	nsq "github.com/jedi108/nsq-go"
 	"github.com/segmentio/conf"
-	nsq "github.com/segmentio/nsq-go"
 	"github.com/segmentio/timers"
 )
 
@@ -37,7 +37,7 @@ func main() {
 	}{
 		Bind:        ":3000",
 		ContentType: "application/octet-stream",
-		UserAgent:   "nsq-to-http (github.com/segmentio/nsq-go)",
+		UserAgent:   "nsq-to-http (github.com/jedi108/nsq-go)",
 		MaxInFlight: 100,
 		HTTPTimeout: 2 * time.Second,
 	}

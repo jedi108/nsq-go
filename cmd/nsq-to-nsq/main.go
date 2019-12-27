@@ -7,8 +7,8 @@ import (
 	"syscall"
 	"time"
 
+	nsq "github.com/jedi108/nsq-go"
 	"github.com/segmentio/conf"
-	nsq "github.com/segmentio/nsq-go"
 )
 
 func main() {
