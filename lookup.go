@@ -58,16 +58,17 @@ func (c *LookupClient) Lookup(topic string) (result LookupResult, err error) {
 			Data       LookupResult `json:"data"`
 		}{}
 
-		if e := json.Unmarshal(r, &v); e != nil {
+		var lookupResult LookupResult
+		if e := json.Unmarshal(r, &lookupResult); e != nil {
 			err = appendError(err, e)
 			continue
 		}
 
-		for _, c := range v.Data.Channels {
+		for _, c := range lookupResult.Channels {
 			channels[c] = true
 		}
 
-		for _, p := range v.Data.Producers {
+		for _, p := range lookupResult.Producers {
 			producers[producerInfoKey{
 				BroadcastAddress: p.BroadcastAddress,
 				Hostname:         p.Hostname,
